@@ -9,42 +9,21 @@ class App extends Component {
   constructor () {
     super ();
     this.state = {
-      inputName: '',
-      inputEmail: '',
-      inputNumber: '',
       Name: '',
       Num: '',
-      Email: ''
-  }
-  this.nameChange = this.nameChange.bind(this);
-  this.emailChange = this.emailChange.bind(this);
-  this.numberChange = this.numberChange.bind(this);
+      Email: '',
+    }
+
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  nameChange ({target: {value}}) {
-    this.setState({inputName: value})
-  }
-
-  emailChange ({target: {value}}) {
-    this.setState({inputEmail: value})
-  }
-
-  numberChange ({target: {value}}) {
-    this.setState({inputNumber: value})
-  }
-
-  handleSubmit (e) {
-    e.preventDefault();
+  handleSubmit (form) {
     this.setState({
-        Name: this.state.inputName,
-        Email: this.state.inputEmail,
-        Num: this.state.inputNumber,
-        inputName: '',
-        inputEmail: '',
-        inputNumber: '',
-    })
-    //console.log(this.state);
+        Name: form.inputName,
+        Email: form.inputEmail,
+        Num: form.inputNumber,
+    }, () => console.log(this.state, "App"));
+    
   }
 
   render () {
@@ -52,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">The Odin Project - CV Application</header>
-        <GeneralForm onSub = {this.handleSubmit} onNumChange = {this.numberChange} onEmail = {this.emailChange} onName = {this.nameChange} inName = {inputName} inEmail = {inputEmail} inNum = {inputNumber} />
+        <GeneralForm onSub = {this.handleSubmit}  />
         <div className="completeCv-title">Your CV</div>
         <Educational />
         <Practical />
