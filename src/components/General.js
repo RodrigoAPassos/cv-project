@@ -30,11 +30,11 @@ class GeneralForm extends Component {
     handleSubmit (e) {
         e.preventDefault();
         this.props.onSub(this.state);
-        this.setState({
+        /* this.setState({
             inputNumber: '',
             inputEmail: '',
             inputName: ''
-        })
+        }) */
     }
 
     render() {
