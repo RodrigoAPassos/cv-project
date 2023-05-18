@@ -12,13 +12,11 @@ class App extends Component {
       Name: '',
       Num: '',
       Email: '',
-      educationalCounter: 0,
-      educationalInfo: [
-        {key: 0, school: '', study: '', start: '', finish: ''}
-      ],
+      educationalInfo: [],
     }
 
   this.handleGenSubmit = this.handleGenSubmit.bind(this);
+  this.handleEducationalSubmit = this.handleEducationalSubmit.bind(this);
   }
 
   handleGenSubmit (form) {
@@ -31,7 +29,10 @@ class App extends Component {
   }
 
   handleEducationalSubmit (form) {
-    console.log(form);
+    this.setState(prevState => ({
+      educationalInfo: [...prevState.educationalInfo, form.educationalInfo]
+    }));
+    console.log(this.state);
     /* this.setState(prevState => ({
 
       educationalInfo: prevState.educationalInfo.map(

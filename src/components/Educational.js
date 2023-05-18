@@ -4,74 +4,52 @@ class Educational extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            key: 0,
-            educationalInfo: {school: '', study: '', start: '', finish: ''},
+            educationalInfo: [{school: '', study: '', start: '', finish: ''}],
         }
 
         this.handleEducationalSubmit = this.handleEducationalSubmit.bind(this);
-        this.schoolNameChange = this.schoolNameChange.bind(this);
-        this.studyChange = this.studyChange.bind(this);
-        this.startChange = this.startChange.bind(this);
-        this.finishChange = this.finishChange.bind(this);
+        this.handleFormChange = this.handleFormChange.bind(this);
+        this.addEducationInfo = this.addEducationInfo.bind(this);
     }
 
-    schoolNameChange ({target: {value}}) {
-        this.setState(prevState => ({
-            educationalInfo: {                   // object that we want to update
-                ...prevState.educationalInfo,    // keep all other key-value pairs
-                school: value                    // update the value of specific key
-            }
-        }))
-    }
-
-    studyChange ({target: {value}}) {
-        this.setState(prevState => ({
-            educationalInfo: {                   // object that we want to update
-                ...prevState.educationalInfo,    // keep all other key-value pairs
-                study: value                    // update the value of specific key
-            }
-        }))
-    }
-
-    startChange ({target: {value}}) {
-        this.setState(prevState => ({
-            educationalInfo: {                   // object that we want to update
-                ...prevState.educationalInfo,    // keep all other key-value pairs
-                start: value                    // update the value of specific key
-            }
-        }))
-    }
-
-    finishChange ({target: {value}}) {
-        this.setState(prevState => ({
-            educationalInfo: {                   // object that we want to update
-                ...prevState.educationalInfo,    // keep all other key-value pairs
-                finish: value                    // update the value of specific key
-            }
-        }))
+    handleFormChange (index, event) {
+        let data = [...this.state.educationalInfo];
+        data[index][event.target.name] = event.target.value;
+        this.setState({educationalInfo: data});
     }
 
     handleEducationalSubmit (e) {
         e.preventDefault();
-        this.setState({key: this.props.keyInfo});
         this.props.onSub(this.state);
     }
 
-    render() {
-        const { school, study, start, finish } = this.state.educationalInfo;
+    addEducationInfo () {
+        let newInfo = {school: '', study: '', start: '', finish: ''};
+        this.setState(prevState => ({
+            educationalInfo: [...prevState.educationalInfo, newInfo]
+        }));
+    }
 
+    render() {
+        
         return(
-            <div className='educationalInfo'>
-                <div className='EduInfo-title'>Educational Information</div>
+            <div>
                 <form action="" className="educationalInfo-form" onSubmit={this.handleEducationalSubmit}>
-                    <label htmlFor='inputSchool'>School's Name: </label>
-                    <input type='text' id='inputSchool' name='inputSchool' onChange={this.schoolNameChange} value={school} required></input>
-                    <label htmlFor='inputStudy'>Title of Study: </label>
-                    <input type='text' id='inputStudy' name='inputStudy' onChange={this.studyChange} value={study} required></input>
-                    <label htmlFor='inputDateS'>Start: </label>
-                    <input type='date' id='inputDateS' name='inputDateS' onChange={this.startChange} value={start} required></input>
-                    <label htmlFor='inputDateF'>Finish: </label>
-                    <input type='date' id='inputDateF' name='inputDateF' onChange={this.finishChange} value={finish} required></input>
+                    <div className='EduInfo-title'>Educational Information</div>
+                    {this.state.educationalInfo.map((input, index) => {
+                    return (
+                        <div className='educationalInfo' key={index}>
+                            <label htmlFor='inputSchool'>School's Name: </label>
+                            <input type='text' id='inputSchool' name='school' onChange={event => this.handleFormChange(index, event)} value={input.school} required></input>
+                            <label htmlFor='inputStudy'>Title of Study: </label>
+                            <input type='text' id='inputStudy' name='study' onChange={event => this.handleFormChange(index, event)} value={input.study} required></input>
+                            <label htmlFor='inputDateS'>Start: </label>
+                            <input type='date' id='inputDateS' name='start' onChange={event => this.handleFormChange(index, event)} value={input.start} required></input>
+                            <label htmlFor='inputDateF'>Finish: </label>
+                            <input type='date' id='inputDateF' name='finish' onChange={event => this.handleFormChange(index, event)} value={input.finish} required></input>
+                            <button type='button' onClick={this.addEducationInfo} >Add Education Info</button>
+                        </div>
+                    )})}
                     <button type='submit'>Save</button>
                 </form>
             </div>
