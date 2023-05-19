@@ -13,10 +13,12 @@ class App extends Component {
       Num: '',
       Email: '',
       educationalInfo: [],
+      expInfo: [],
     }
 
   this.handleGenSubmit = this.handleGenSubmit.bind(this);
   this.handleEducationalSubmit = this.handleEducationalSubmit.bind(this);
+  this.handlePracticalSubmit = this.handlePracticalSubmit.bind(this);
   }
 
   handleGenSubmit (form) {
@@ -29,27 +31,18 @@ class App extends Component {
   }
 
   handleEducationalSubmit (form) {
-    this.setState(prevState => ({
-      educationalInfo: [...prevState.educationalInfo, form.educationalInfo]
-    }));
-    console.log(this.state);
+    //add at end
     /* this.setState(prevState => ({
+      educationalInfo: [...prevState.educationalInfo, form.educationalInfo]
+    }), ()=> console.log(this.state)); */
+    //replace
+    let data = [...form.educationalInfo];
+    this.setState({educationalInfo: data}, /* ()=> console.log(this.state) */);
+  }
 
-      educationalInfo: prevState.educationalInfo.map(
-        el => el.key === form.key? { ...el, school: form.educationalInfo.school }: el
-      ),
-      educationalInfo: prevState.educationalInfo.map(
-        el => el.key === form.key? { ...el, study: form.educationalInfo.study }: el
-      ),
-      educationalInfo: prevState.educationalInfo.map(
-        el => el.key === form.key? { ...el, start: form.educationalInfo.start }: el
-      ),
-      educationalInfo: prevState.educationalInfo.map(
-        el => el.key === form.key? { ...el, finish: form.educationalInfo.finish }: el
-      )
-    
-    })) */
-    
+  handlePracticalSubmit (form) {
+    let data = [...form.expInfo];
+    this.setState({expInfo: data}, ()=> console.log(this.state));
   }
 
   render () {
@@ -58,10 +51,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">The Odin Project - CV Application</header>
         <GeneralForm onSub = {this.handleGenSubmit}  />
-        <Educational onSub = {this.handleEducationalSubmit} keyInfo = {this.state.educationalCounter} />
-        <div className='practicalExp-title'>Practical Experience</div>
-        <div className='practicalExp'></div>
-        <button className='addPracticalExp'>Add</button>
+        <Educational onSub = {this.handleEducationalSubmit} />
+        <Practical onSub = {this.handlePracticalSubmit}  />
         <div className="completeCv-title">Your CV</div>
       </div>
     );
