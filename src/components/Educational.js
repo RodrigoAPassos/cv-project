@@ -41,8 +41,10 @@ class Educational extends Component {
                         <div className='educationalInfo' key={index}>
                             <input type='text' placeholder="School's Name: " id='inputSchool' name='school' onChange={event => this.handleFormChange(index, event)} value={input.school} required></input>
                             <input type='text' placeholder='Title of Study: ' id='inputStudy' name='study' onChange={event => this.handleFormChange(index, event)} value={input.study} required></input>
-                            <input type='date' placeholder='Start: ' id='inputDateS' name='start' onChange={event => this.handleFormChange(index, event)} value={input.start} required></input>
-                            <input type='date' placeholder='Finish: ' id='inputDateF' name='finish' onChange={event => this.handleFormChange(index, event)} value={input.finish} required></input>
+                            <label htmlFor='inputDateS'>Start: </label>
+                            <input type='date' id='inputDateS' name='start' onChange={event => this.handleFormChange(index, event)} value={input.start} required></input>
+                            <label htmlFor='inputDateF'>Finish: </label>
+                            <input type='date' id='inputDateF' name='finish' onChange={event => this.handleFormChange(index, event)} value={input.finish} required></input>
                             <button type='button' onClick={this.addEducationInfo} >Add Education Info</button>
                         </div>
                     )})}

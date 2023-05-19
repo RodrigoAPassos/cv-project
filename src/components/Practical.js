@@ -41,8 +41,10 @@ class Practical extends Component {
                         <div className='explInfo' key={index}>
                             <input type='text' placeholder='Company Name: ' id='inputCompName' name='compName' onChange={event => this.handleFormChange(index, event)} value={input.compName} required></input>
                             <input type='text' placeholder='Position Title: ' id='inputPosition' name='position' onChange={event => this.handleFormChange(index, event)} value={input.position} required></input>                            
-                            <input type='date' placeholder='From:' id='inputDateFrom' name='from' onChange={event => this.handleFormChange(index, event)} value={input.from} required></input>
-                            <input type='date' placeholder='Until:' id='inputDateUntil' name='until' onChange={event => this.handleFormChange(index, event)} value={input.until} required></input>
+                            <label htmlFor='inputDateFrom'>From: </label>
+                            <input type='date' id='inputDateFrom' name='from' onChange={event => this.handleFormChange(index, event)} value={input.from} required></input>
+                            <label htmlFor='inputDateUntil'>To: </label>
+                            <input type='date' id='inputDateUntil' name='until' onChange={event => this.handleFormChange(index, event)} value={input.until} required></input>
                             <textarea name='desc' onChange={event => this.handleFormChange(index, event)} value={input.desc} maxLength={100} placeholder='Main tasks of your job...'></textarea>
                             <button type='button' onClick={this.addExpInfo} >Add Practical Experience</button>
                         </div>
