@@ -41,7 +41,7 @@ class GeneralForm extends Component {
         const { inputName, inputEmail, inputNumber } = this.state;
         return(
             <div className='generalInformation'>
-                <div className='generalInfo-title'>General Information</div>
+                <h3 className='generalInfo-title'>General Information</h3>
                 <form action="" className="generalInfo-form" onSubmit={this.handleSubmit}>
                     <input type='text' placeholder='Name: ' id='inputName' name='inputName' onChange={this.nameChange} value={inputName} required></input>
                     <input type='email' placeholder='E-mail: ' id='inputEmail' name='inputEmail' onChange={this.emailChange} value={inputEmail} required></input>
