@@ -30,11 +30,6 @@ class GeneralForm extends Component {
     handleSubmit (e) {
         e.preventDefault();
         this.props.onSub(this.state);
-        /* this.setState({
-            inputNumber: '',
-            inputEmail: '',
-            inputName: ''
-        }) */
     }
 
     render() {
@@ -46,7 +41,7 @@ class GeneralForm extends Component {
                     <input type='text' placeholder='Name: ' id='inputName' name='inputName' onChange={this.nameChange} value={inputName} required></input>
                     <input type='email' placeholder='E-mail: ' id='inputEmail' name='inputEmail' onChange={this.emailChange} value={inputEmail} required></input>
                     <input type='tel' id='inputNumber' name='inputNumber' onChange={this.numberChange} value={inputNumber} pattern='[\+]\d{2}[\(]\d{2}[\)]\d{5}[\-]\d{4}' placeholder='Number: +99(99)99999-9999' required></input>
-                    <button type='submit'>Save</button>
+                    <button className='genSub' type='submit'>Save</button>
                 </form>
             </div>
         )

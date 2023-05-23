@@ -50,10 +50,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">The Odin Project - CV Application</header>
-        <GeneralForm onSub = {this.handleGenSubmit}  />
-        <Educational onSub = {this.handleEducationalSubmit} />
-        <Practical onSub = {this.handlePracticalSubmit}  />
-        <div className="completeCv-title">Your CV</div>
+        <div className="entry-forms">
+          <GeneralForm onSub = {this.handleGenSubmit}  />
+          <Educational onSub = {this.handleEducationalSubmit} />
+          <Practical onSub = {this.handlePracticalSubmit}  />
+        </div>
+        <div className="display-cv">
+          <h3 className="completeCv-title">Your CV ⬇️ </h3>
+          <CompleteCV cvData = {this.state} />
+        </div>
       </div>
     );
   }
