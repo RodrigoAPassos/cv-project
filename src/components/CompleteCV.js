@@ -3,37 +3,57 @@ import React, { Component } from 'react';
 export default class CompleteCV extends Component {
   constructor (props) {
     super(props);
-    this.state = {
+    /* this.state = {
       Name: '',
       Num: '',
       Email: '',
+      Address: '',
+      Title: '',
       educationalInfo: [],
       expInfo: [],
-      display: false
-    }
+    } */
 
-  }
+    let eduData = [...this.props.cvData.educationalInfo];
+    let expData = [...this.props.cvData.expInfo];
+    /* this.setState({educationalInfo: data}); */
+    this.state = {
+      Name: this.props.cvData.Name,
+      Num: this.props.cvData.Num,
+      Email: this.props.cvData.Email,
+      Address: this.props.cvData.Address,
+      Title: this.props.cvData.Title,
+      educationalInfo: eduData,
+      expInfo: expData,
+    };
 
-  loadCV () {
+    //this.loadCV = this.loadCV.bind(this);
+  };
+
+  /* loadCV () {
+    let eduData = [...this.props.educationalInfo];
+    let expData = [...this.props.expInfo];
+    //this.setState({educationalInfo: data});
     this.setState({
-      Name: this.props.Name,
-      Num: this.props.Num,
-      Email: this.props.Email,
-      display: true,
-    }, console.log(this.state))
-  }
+      Name: this.props.cvData.Name,
+      Num: this.props.cvData.Num,
+      Email: this.props.cvData.Email,
+      Address: this.props.cvData.Address,
+      Title: this.props.cvData.Title,
+      educationalInfo: eduData,
+      expInfo: expData,
+    }, console.log(this.state));
+  } */
 
   render() {
-    const { Name, Num, Email, display } = this.state;
+    const { Name, Num, Email, Title, Address } = this.state;
+    
     return (
       <div className='completeCV'>
-        {/* <button className='load' onClick={this.loadCV} >Load CV</button> */}
-        {
-        display? 
-          <div className='candidateName'>{Name}</div>
-        
-        : 
-        <div></div>}
+        <div className='candidateTitle'>{Title}</div>
+        <div className='candidateName'>{Name}</div>
+        <div className='candidateEmail'>{Email}</div>
+        <div className='candidateNum'>{Num}</div>
+        <div className='candidateName'>{Address}</div>
       </div>
     )
   }

@@ -12,6 +12,8 @@ class App extends Component {
       Name: '',
       Num: '',
       Email: '',
+      Address: '',
+      Title: '',
       educationalInfo: [],
       expInfo: [],
     }
@@ -26,6 +28,8 @@ class App extends Component {
         Name: form.inputName,
         Email: form.inputEmail,
         Num: form.inputNumber,
+        Address: form.inputAddress,
+        Title: form.inputTitle,
     }, /* () => console.log(this.state, "App") */);
     
   }

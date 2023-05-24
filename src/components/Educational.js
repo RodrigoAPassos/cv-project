@@ -40,17 +40,17 @@ class Educational extends Component {
                     return (
                         <div className='educationalInfo' key={index}>
                             <div className="name-session">
-                                <input type='text' placeholder="School's Name: " id='inputSchool' name='school' onChange={event => this.handleFormChange(index, event)} value={input.school} required></input>
-                                <input type='text' placeholder='Title of Study: ' id='inputStudy' name='study' onChange={event => this.handleFormChange(index, event)} value={input.study} required></input>
+                                <input type='text' placeholder="School's Name: " id={`inputSchool${index}`} name='school' onChange={event => this.handleFormChange(index, event)} value={input.school} required></input>
+                                <input type='text' placeholder='Title of Study: ' id={`inputStudy${index}`} name='study' onChange={event => this.handleFormChange(index, event)} value={input.study} required></input>
                             </div>
                             <div className="date-session">
                                 <div className="start">
-                                    <label htmlFor='inputDateS'>Start: </label>
-                                    <input type='date' id='inputDateS' name='start' onChange={event => this.handleFormChange(index, event)} value={input.start} required></input>
+                                    <label htmlFor={`inputDateS${index}`}>Start: </label>
+                                    <input type='date' id={`inputDateS${index}`} name='start' onChange={event => this.handleFormChange(index, event)} value={input.start} required></input>
                                 </div>
                                 <div className="finish">
-                                    <label htmlFor='inputDateF'>Finish: </label>
-                                    <input type='date' id='inputDateF' name='finish' onChange={event => this.handleFormChange(index, event)} value={input.finish} required></input>
+                                    <label htmlFor={`inputDateF${index}`}>Finish: </label>
+                                    <input type='date' id={`inputDateF${index}`} name='finish' onChange={event => this.handleFormChange(index, event)} value={input.finish} required></input>
                                 </div>
                             </div>
                             <button type='button' onClick={this.addEducationInfo} >Add Education Info</button>
