@@ -14,6 +14,7 @@ class App extends Component {
       Email: '',
       Address: '',
       Title: '',
+      profile: '',
       educationalInfo: [],
       expInfo: [],
     }
@@ -30,7 +31,8 @@ class App extends Component {
         Num: form.inputNumber,
         Address: form.inputAddress,
         Title: form.inputTitle,
-    }, /* () => console.log(this.state, "App") */);
+        profile: form.profile,
+    });
     
   }
 
@@ -46,7 +48,7 @@ class App extends Component {
 
   handlePracticalSubmit (form) {
     let data = [...form.expInfo];
-    this.setState({expInfo: data}, ()=> console.log(this.state));
+    this.setState({expInfo: data},/*  ()=> console.log(this.state) */);
   }
 
   render () {

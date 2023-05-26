@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-.entry-forms, .display-cv {
+.entry-forms, .cv-display {
   margin: 2% 10%;
   width: 70%;
   box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
@@ -51,6 +51,14 @@
 .generalInfo-form > input, .name-session > input {
   width: 100%;
   flex-grow: 1;
+}
+
+.photoEntry {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .name-session {
