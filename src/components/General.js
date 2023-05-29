@@ -10,6 +10,7 @@ class GeneralForm extends Component {
             inputTitle: '',
             inputAddress: '',
             profile: '',
+            skills: [],
         }
         
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,6 +20,7 @@ class GeneralForm extends Component {
         this.titleChange = this.titleChange.bind(this);
         this.addressChange = this.addressChange.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.handleSkillsChange = this.handleSkillsChange.bind(this);
     }
 
     nameChange ({target: {value}}) {
@@ -47,13 +49,18 @@ class GeneralForm extends Component {
           }
     }
 
+    handleSkillsChange ({target: {value}}) {
+        let skillSet = value.split(',');
+        this.setState({skills: skillSet});
+    }
+
     handleSubmit (e) {
         e.preventDefault();
         this.props.onSub(this.state);
     }
 
     render() {
-        const { inputName, inputEmail, inputNumber, inputAddress, inputTitle } = this.state;
+        const { inputName, inputEmail, inputNumber, inputAddress, inputTitle, skills } = this.state;
         return(
             <div className='generalInformation'>
                 <h3 className='generalInfo-title'>General Information</h3>
@@ -63,6 +70,7 @@ class GeneralForm extends Component {
                     <input type='tel' id='inputNumber' name='inputNumber' onChange={this.numberChange} value={inputNumber} pattern='[\+]\d{2}[\(]\d{2}[\)]\d{5}[\-]\d{4}' placeholder='Phone Number: +99(99)99999-9999' required></input>
                     <input type='text' placeholder='Address: ' id='inputAddress' name='inputAddress' onChange={this.addressChange} value={inputAddress} maxLength={50} required></input>
                     <input type='text' placeholder='Title: ' id='inputTitle' name='inputTitle' onChange={this.titleChange} value={inputTitle} maxLength={30} required></input>
+                    <textarea name='skills' className='skills-entry' onChange={this.handleSkillsChange} value={skills} maxLength={100} placeholder='Type your skills separeted by comma...'></textarea>
                     <div className="photoEntry">
                         <label htmlFor='inputPhoto'>Photo</label>
                         <input id='inputPhoto' name='candidatePhoto' type='file' onChange={this.handleFile}></input>

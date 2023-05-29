@@ -109,3 +109,11 @@ button {
 button:active {
   border: 2px solid white;
 }
+
+.loadBtn {
+  margin: 5%;
+}
+
+.skills-area {
+  text-align: left;
+}

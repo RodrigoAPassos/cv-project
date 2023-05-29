@@ -15,6 +15,7 @@ class App extends Component {
       Address: '',
       Title: '',
       profile: '',
+      skills: [],
       educationalInfo: [],
       expInfo: [],
     }
@@ -25,6 +26,8 @@ class App extends Component {
   }
 
   handleGenSubmit (form) {
+    let skillSet = [...form.skills];
+    skillSet = skillSet.map(skill => skill.trim());
     this.setState({
         Name: form.inputName,
         Email: form.inputEmail,
@@ -32,6 +35,7 @@ class App extends Component {
         Address: form.inputAddress,
         Title: form.inputTitle,
         profile: form.profile,
+        skills: skillSet,
     });
     
   }
