@@ -38,7 +38,7 @@ class Practical extends Component {
                     <h3 className='expInfo-title'>Practical Experience</h3>
                     {this.state.expInfo.map((input, index) => {
                     return (
-                        <div className='explInfo' key={index}>
+                        <div className='expInfo' key={index}>
                             <div className="name-session">
                                 <input type='text' placeholder='Company Name: ' id={`inputCompName${index}`} name='compName' onChange={event => this.handleFormChange(index, event)} value={input.compName} required></input>
                                 <input type='text' placeholder='Position Title: ' id={`inputPosition${index}`} name='position' onChange={event => this.handleFormChange(index, event)} value={input.position} required></input>

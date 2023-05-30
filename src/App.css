@@ -1,8 +1,11 @@
 .App {
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 2vh;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .App-logo {
@@ -29,12 +32,41 @@
   border-radius: 12px;
 }
 
+@media print {
+  .cv-display {
+    page-break-inside: avoid;
+    max-height: 95vh;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+.cv-display {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.right-area {
+  margin: 2rem;
+}
+
+.left-area {
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr;
+}
+
+.right-area {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: left;
+}
+
 .generalInfo-title, .eduInfo-title, .expInfo-title, .completeCv-title {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.generalInfo-form, .educationalInfo, .explInfo {
+.generalInfo-form, .educationalInfo, .expInfo {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -89,6 +121,7 @@ input[type=date] {
 
 textarea {
   width: 100%;
+  flex-grow: 1;
 }
 
 .App-link {
@@ -114,6 +147,82 @@ button:active {
   margin: 5%;
 }
 
-.skills-area {
-  text-align: left;
+.candidateName {
+  font-size: 1.5rem;
+  color: #44546a;
+  margin-top: 1rem;
+}
+
+.candidateTitle {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.contact-area, .skills-area {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  margin: 0;
+}
+
+.contactTitle, .skillsTitle, .educInfoTitle, .expInfoTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem;
+  color: #44546a;
+  font-style: italic;
+  border-bottom: 1px solid #282c34;
+}
+
+.contactTitle, .skillsTitle {
+  flex-grow: 0;
+}
+
+.candidateNum, .candidateEmail, .candidateAddress {
+  font-size: 1rem;
+}
+
+.skillsList {
+  padding: 0;
+}
+
+.skillsDisp {
+  list-style-type: none;
+  
+}
+
+.educDispInfo, .expDispInfo {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: double;
+}
+
+.candidateSchool, .candidateStudy, .candidateCompName, .candidatePosition {
+  font-style: italic;
+}
+
+.educDates, .expDates {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.startDate, .finishDate, .fromDate, .untilDate {
+  display: flex;
+  gap: 2rem;
+  flex-grow: 1;
+  font-style: italic;
+  padding: 0.2rem;
+}
+
+.desc-area {
+  padding: 0.2rem;
+}
+
+.startTitle, .finishTitle, .fromTitle, .untilTitle, .descTitle {
+  font-weight: bold;
 }
