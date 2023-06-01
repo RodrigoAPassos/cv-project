@@ -32,34 +32,54 @@
   border-radius: 12px;
 }
 
-@media print {
-  .cv-display {
-    page-break-inside: avoid;
-    max-height: 95vh;
-    max-width: 100%;
-    width: auto;
-  }
-}
-
 .cv-display {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  border-radius: 0;
+
+  width: 21cm;
+  min-height: 29.7cm;
+  margin: 0 auto;
+  margin-bottom: 5%;
 }
 
-.right-area {
-  margin: 2rem;
+@media print{
+  /* .entry-forms, .completeCv-title, .loadBtn, .App-header {
+    display: none;
+  } */
+  body {
+    visibility: hidden;
+  }
+  .cv-display {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none; 
+  }
 }
 
 .left-area {
   display: grid;
-  grid-template-rows: 2fr 1fr 1fr;
+  align-items: center;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.profile-area {
+  min-height: 50%;
 }
 
 .right-area {
+  margin: 2rem;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   text-align: left;
+  gap: 3%;
 }
+
+
 
 .generalInfo-title, .eduInfo-title, .expInfo-title, .completeCv-title {
   margin-top: 5px;
@@ -154,7 +174,6 @@ button:active {
 }
 
 .candidateTitle {
-  font-size: 1rem;
   font-style: italic;
 }
 
@@ -164,6 +183,10 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.skills-area {
+  max-height: 100%;
 }
 
 ul {
@@ -188,12 +211,19 @@ ul {
 }
 
 .skillsList {
+  max-height: 150px;
   padding: 0;
+  display: flex;/* 
+  flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: center;
 }
 
-.skillsDisp {
-  list-style-type: none;
-  
+.skillsDisp {/* 
+  list-style-type: none; */
+  margin: 2%;
+  list-style-position: inside;
 }
 
 .educDispInfo, .expDispInfo {
@@ -202,8 +232,14 @@ ul {
   border-bottom: double;
 }
 
-.candidateSchool, .candidateStudy, .candidateCompName, .candidatePosition {
+.candidateStudy, .candidatePosition {
   font-style: italic;
+  margin: 1%;
+}
+
+.candidateSchool, .candidateCompName {
+  font-weight: bold;
+  margin: 1%;
 }
 
 .educDates, .expDates {
@@ -215,7 +251,6 @@ ul {
   display: flex;
   gap: 2rem;
   flex-grow: 1;
-  font-style: italic;
   padding: 0.2rem;
 }
 
@@ -224,5 +259,5 @@ ul {
 }
 
 .startTitle, .finishTitle, .fromTitle, .untilTitle, .descTitle {
-  font-weight: bold;
+  font-style: italic;
 }
