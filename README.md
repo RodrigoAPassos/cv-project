@@ -18,11 +18,3 @@ Visit the App: [CV Application](https://rodrigoapassos.github.io/cv-project/).
 + Click at the Load/Reload CV button to load your information at the CV template;
 + If everything looks fine use Ctrl+P to print or save to PDF or go back at the entry forms,
 change the desired information, click the Save button from that session and then click to Reload!
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
